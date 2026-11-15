@@ -1770,7 +1770,7 @@ function renderInstall(){
         : `<p class="install-note">Open this page in <b>Chrome</b> on Android or desktop, or <b>Safari</b> on iPhone, then use <b>Install app</b> or <b>Add to Home Screen</b>.</p>`;
     slot.innerHTML = `<div class="install-card">
       <img src="icons/icon-192.png" width="44" height="44" alt="">
-      <div class="install-text"><b>Get the Fuel Logbook app</b><span>Opens full screen from your home screen and works offline. Your log stays in sync with the website.</span></div>
+      <div class="install-text"><b>Get the Auto Ninja app</b><span>Opens full screen from your home screen and works offline. Your log stays in sync with the website.</span></div>
       ${how}
     </div>`;
   });
@@ -1792,7 +1792,7 @@ window.addEventListener("beforeinstallprompt", ev => {
 window.addEventListener("appinstalled", () => {
   installPrompt = null;
   try{ localStorage.setItem(INSTALLED_KEY, "1"); }catch(e){}
-  renderInstall(); toast("Fuel Logbook installed");
+  renderInstall(); toast("Auto Ninja installed");
 });
 $("installBtn").addEventListener("click", () => { toggleMenu(false); promptInstall(); });
 document.addEventListener("click", ev => { if (ev.target.closest("[data-install-go]")) promptInstall(); });

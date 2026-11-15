@@ -1,4 +1,4 @@
-# Fuel Logbook
+# Auto Ninja
 
 A web app for logging car fill-ups and tracking fuel average and spending. People sign in with
 Google, and each account's log is saved in Supabase and kept private to that account. New accounts
@@ -35,7 +35,7 @@ Distances are stored in km and fuel in liters; the app converts for display.
 
 ## Where it runs
 
-Fuel Logbook has its own GitHub repository, Supabase project and Google sign-in client; nothing is
+Auto Ninja has its own GitHub repository, Supabase project and Google sign-in client; nothing is
 shared with other apps. Every push to `main` redeploys both sites:
 
 | Site | URL | How it deploys |
@@ -60,8 +60,8 @@ Code: https://github.com/aliuppal/Fuel_Logbook
 
 ### 2. Google sign-in
 
-1. At https://console.cloud.google.com create a new project (for example `Fuel Logbook`).
-2. *Google Auth Platform → Branding*: app name `Fuel Logbook`, your support email. Under
+1. At https://console.cloud.google.com create a new project (for example `Auto Ninja`).
+2. *Google Auth Platform → Branding*: app name `Auto Ninja`, your support email. Under
    *Audience* choose **External** and **Publish app**, so any Google account can sign in, not only
    test users.
 3. *Clients → Create client → Web application*:
@@ -101,7 +101,7 @@ vercel.json                Serves sw.js uncached so updates reach installed apps
 
 ## Install on your phone
 
-Fuel Logbook is an installable web app (PWA): it gets its own home-screen icon, opens full screen
+Auto Ninja is an installable web app (PWA): it gets its own home-screen icon, opens full screen
 without the browser bar, and shows your last loaded log when you're offline (changes need a
 connection).
 

@@ -1,5 +1,5 @@
 // Supabase project settings (Supabase dashboard → Project Settings → API).
-// Fuel Logbook has its own Supabase project; paste its Project URL and the
+// Auto Ninja has its own Supabase project; paste its Project URL and the
 // anon / publishable key here. The anon key is designed to be public: row-level
 // security in supabase/migrations keeps each user's data private.
 // Never put the service_role key in this file.

@@ -1,6 +1,6 @@
 {
-  "name": "Fuel Logbook",
-  "short_name": "Fuel Log",
+  "name": "Auto Ninja",
+  "short_name": "Auto Ninja",
   "description": "Track your car's fuel average in km or miles, liters or gallons, and what you pay by fuel card or yourself.",
   "id": "./",
   "start_url": "./",
