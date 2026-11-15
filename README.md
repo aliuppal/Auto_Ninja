@@ -40,11 +40,11 @@ shared with other apps. Every push to `main` redeploys both sites:
 
 | Site | URL | How it deploys |
 |---|---|---|
-| Vercel | https://fuel-logbook.vercel.app/ | Vercel project `fuel-logbook`, connected to the GitHub repo |
-| GitHub Pages | https://aliuppal.github.io/Fuel_Logbook/ | *Settings → Pages*: deploy from branch `main`, folder `/` |
+| Vercel | https://auto-ninja.vercel.app/ | Vercel project `auto-ninja`, connected to the GitHub repo |
+| GitHub Pages | https://aliuppal.github.io/Auto_Ninja/ | *Settings → Pages*: deploy from branch `main`, folder `/` |
 | Local | http://localhost:8081/ | `npm start` |
 
-Code: https://github.com/aliuppal/Fuel_Logbook
+Code: https://github.com/aliuppal/Auto_Ninja
 
 ## Setup
 
@@ -54,8 +54,8 @@ Code: https://github.com/aliuppal/Fuel_Logbook
 2. `js/config.js` holds the project's **Project URL** and **anon / publishable** key
    (*Project Settings → API*). Never use the `service_role` key.
 3. *Authentication → URL Configuration*:
-   - *Site URL*: `https://fuel-logbook.vercel.app/`
-   - *Redirect URLs*: `https://fuel-logbook.vercel.app/`, `https://aliuppal.github.io/Fuel_Logbook/`
+   - *Site URL*: `https://auto-ninja.vercel.app/`
+   - *Redirect URLs*: `https://auto-ninja.vercel.app/`, `https://aliuppal.github.io/Auto_Ninja/`
      and `http://localhost:8081/`
 
 ### 2. Google sign-in
@@ -65,7 +65,7 @@ Code: https://github.com/aliuppal/Fuel_Logbook
    *Audience* choose **External** and **Publish app**, so any Google account can sign in, not only
    test users.
 3. *Clients → Create client → Web application*:
-   - *Authorized JavaScript origins*: `https://fuel-logbook.vercel.app`, `https://aliuppal.github.io`
+   - *Authorized JavaScript origins*: `https://auto-ninja.vercel.app`, `https://aliuppal.github.io`
      and `http://localhost:8081`
    - *Authorized redirect URIs*: `https://nmithewveywisilucruv.supabase.co/auth/v1/callback`
 4. In Supabase, *Authentication → Sign In / Providers → Google*: turn it on and paste the
@@ -105,7 +105,7 @@ Auto Ninja is an installable web app (PWA): it gets its own home-screen icon, op
 without the browser bar, and shows your last loaded log when you're offline (changes need a
 connection).
 
-- **Android (Chrome):** open https://fuel-logbook.vercel.app → account menu → **Install app on
+- **Android (Chrome):** open https://auto-ninja.vercel.app → account menu → **Install app on
   this device**, or ⋮ menu → **Install app**. Long-press the icon for an **Add fill-up** shortcut.
 - **iPhone (Safari):** open the site → **Share** → **Add to Home Screen**.
 - **Desktop (Chrome/Edge):** the install icon in the address bar, or the account menu.
