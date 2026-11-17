@@ -1131,7 +1131,13 @@ $("form").addEventListener("submit", async ev => {
   const wasEdit = !!editingId;
   $("fSubmit").disabled = true;
   try{ await writeEntry(editingId, body); closeSheet(); toast(wasEdit ? "Changes saved" : "Fill-up added"); }
-  catch(e){ msg.hidden = false; msg.textContent = "Couldn't save. Check your connection and try again."; }
+  catch(e){
+    msg.hidden = false;
+    // "Both" needs the split-payment database update; say so instead of blaming the connection.
+    msg.textContent = payer === "split" && /paid_by|card_liters|check constraint/i.test((e && e.message) || "")
+      ? "Paying with both needs a database update first: run supabase/migrations/20261117000000_fuel_split_payment.sql in the Supabase SQL Editor, then save again."
+      : "Couldn't save. Check your connection and try again.";
+  }
   finally{ $("fSubmit").disabled = false; }
 });
 let delArmed = false;
