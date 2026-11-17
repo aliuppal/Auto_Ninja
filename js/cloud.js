@@ -61,6 +61,7 @@ const fromRow = (r) => ({
   liters: num(r.liters),
   paid: num(r.amount_paid),
   payer: r.paid_by,
+  cardLiters: num(r.card_liters),
   partial: r.partial_fill,
   note: r.note,
   carId: r.car_id ?? null,
@@ -72,7 +73,9 @@ const toRow = (e) => ({
   odometer_km: e.odo,
   liters: e.liters ?? null,
   amount_paid: e.paid ?? null,
-  paid_by: e.payer === "card" ? "card" : "self",
+  paid_by: e.payer === "card" || e.payer === "split" ? e.payer : "self",
+  // The card's share in liters when a fill-up is split between the card and me.
+  card_liters: e.payer === "split" ? e.cardLiters ?? 0 : null,
   partial_fill: !!e.partial,
   note: e.note || "",
   // Only sent once the cars migration has run (the app then always has a car selected).
@@ -144,12 +147,15 @@ export class FuelStore {
     return this.saveFillup(toRow(entry), (r) => this.supabase.from("fuel_fillups").update(r).eq("id", id));
   }
 
-  // Saves without the fuel grade if that column doesn't exist yet (migration not run).
+  // Columns from later migrations (fuel grade, split payment) may not exist yet:
+  // drop the one the database names and save the rest.
   async saveFillup(row, write) {
     let res = await write(row).select(FILLUP_COLUMNS).single();
-    if (res.error && "fuel_grade" in row && /fuel_grade/.test(res.error.message || "")) {
-      const { fuel_grade, ...rest } = row;
-      res = await write(rest).select(FILLUP_COLUMNS).single();
+    for (const col of ["fuel_grade", "card_liters"]) {
+      if (res.error && col in row && new RegExp(col).test(res.error.message || "")) {
+        delete row[col];
+        res = await write(row).select(FILLUP_COLUMNS).single();
+      }
     }
     return fromRow(check(res));
   }

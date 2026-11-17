@@ -509,3 +509,11 @@ body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}
 
 /* ---------- logo ---------- */
 .logo{flex:none;display:block;border-radius:22%}
+
+/* ---------- split payment: fuel card + me ---------- */
+.payer{grid-template-columns:repeat(3,minmax(0,1fr))}
+.payer button[data-p="split"][aria-pressed="true"]{background:linear-gradient(90deg,var(--card-soft) 50%,var(--me-soft) 50%);border-color:var(--card);color:var(--ink)}
+.split-row{margin-top:2px}
+.chip.split{background:linear-gradient(90deg,var(--card-soft) var(--pc,50%),var(--me-soft) var(--pc,50%));color:var(--ink)}
+/* The tile fills with the card's share of the day's liters, the rest is mine. */
+.cal-d.pay-both{background:linear-gradient(90deg,var(--card-soft) var(--pc,50%),var(--me-soft) var(--pc,50%));border-color:color-mix(in srgb,var(--card) 30%,var(--me) 30%)}

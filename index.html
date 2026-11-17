@@ -340,7 +340,12 @@
       <div class="payer-h"><span class="lbl">Paid by</span><span class="payer-left" id="fCardLeft"></span></div>
       <div class="payer" role="group" aria-label="Paid by">
         <button type="button" data-p="card" aria-pressed="false">Fuel card</button>
+        <button type="button" data-p="split" aria-pressed="false">Both</button>
         <button type="button" data-p="self" aria-pressed="true">Me</button>
+      </div>
+      <div class="row2 split-row" id="fSplitRow" hidden>
+        <label><span id="fCardLLbl">Fuel card (L)</span><input type="number" id="fCardL" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 7.3"></label>
+        <label><span id="fMeLLbl">Me (L)</span><input type="number" id="fMeL" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 20.16"></label>
       </div>
     </div>
     <label class="check" id="fOctaneRow"><input type="checkbox" id="fOctane"> High octane</label>
